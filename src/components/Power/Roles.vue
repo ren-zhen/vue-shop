@@ -185,7 +185,6 @@ export default {
     },
     // 点击修改按钮，显示角色信息对话框
     async ShowEditDialog(id) {
-      this.editDialogVisible = true
       // console.log(id)
       var { data: res } = await this.$http.get('roles/' + id)
       // console.log(res)
@@ -193,6 +192,7 @@ export default {
         return this.$message.error('查询用户信息失败！')
       }
       this.editRolesForm = res.data
+      this.editDialogVisible = true
     },
     // 关闭修改角色对话框时的重置事件
     editDialogClosed() {
@@ -214,6 +214,7 @@ export default {
         // 修改成功,关闭对话框，重新喧染页面
         this.editDialogVisible = false
         this.getRolesList()
+        this.$message.success('更新角色信息成功！')
       })
     },
     // 删除角色

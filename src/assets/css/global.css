@@ -16,3 +16,7 @@ html,body,#app{
   margin-top: 15px;
   font-size: 12px;
 }
+/* 解决el-cascader级联选择器的选择列表太长的问题 */
+.el-cascader-menu {
+  height: 300px;
+}
