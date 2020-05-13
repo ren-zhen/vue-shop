@@ -262,7 +262,6 @@ export default {
     },
     // 控制修改用户信息的对话空的显示与隐藏
     async ShowEditDialog(id) {
-      this.editDialogVisible = true
       // console.log(id)
       var { data: res } = await this.$http.get('users/' + id)
       // console.log(res)
@@ -270,6 +269,7 @@ export default {
         return this.$message.error('查询用户信息失败！')
       }
       this.editForm = res.data
+      this.editDialogVisible = true
     },
     // 修改表单的重置事件
     editFormClosed() {
